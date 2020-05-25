@@ -55,7 +55,7 @@ namespace WEB2020Apr_P01_T4
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseSession();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
