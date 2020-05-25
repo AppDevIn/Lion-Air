@@ -49,7 +49,9 @@ namespace WEB2020Apr_P01_T4
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
+                endpoints.MapControllerRoute(
+             name: "default",
+             pattern: "{controller=Login}/{action=Index}/{id?}");
             });
         }
     }
