@@ -43,7 +43,7 @@ namespace WEB2020Apr_P01_T4.Controllers
                 HttpContext.Session.SetString("Role", "Staff");
 
                 //Redirect use to the Staff Main 
-                //return RedirectToAction("StaffMain");
+                return RedirectToAction("StaffMain");
             }
             else
             {
