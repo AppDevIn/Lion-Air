@@ -19,11 +19,6 @@ namespace WEB2020Apr_P01_T4.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
@@ -32,11 +27,12 @@ namespace WEB2020Apr_P01_T4.Controllers
 
         //Staff Login credentails
         [HttpPost]
-        public ActionResult Stafflogin(IFormCollection formData)
+        public ActionResult StaffLogin(IFormCollection formData)
         {
             //Email address converted to lowercase
-            string loginID = formData["txtLoginID"].ToString().ToLower();
-            string password = formData["txtPassword"].ToString();
+            string loginID = formData["username"].ToString().ToLower();
+            string password = formData["password"].ToString();
+
 
             if (loginID == "s1234567@ica.com" && password == "p@55Staff")
             {
