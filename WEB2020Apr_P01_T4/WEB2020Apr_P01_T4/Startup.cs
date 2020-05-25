@@ -23,7 +23,16 @@ namespace WEB2020Apr_P01_T4
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
+            //Add a default in-memory implementation of distributed cache
+            services.AddDistributedMemoryCache();
+            //Add the session service
+            services.AddSession(options =>
+            {
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
+            services.AddControllesWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,7 +44,7 @@ namespace WEB2020Apr_P01_T4
             }
             else
             {
-                app.UseExceptionHandler("/Error");
+                app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
@@ -50,8 +59,8 @@ namespace WEB2020Apr_P01_T4
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-             name: "default",
-             pattern: "{controller=Login}/{action=Index}/{id?}");
+                    name: "default",
+                    pattern: "{controller=Login}/{action=Index}/{id?}");
             });
         }
     }
