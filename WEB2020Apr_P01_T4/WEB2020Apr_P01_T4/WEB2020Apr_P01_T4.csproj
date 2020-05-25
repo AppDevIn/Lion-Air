@@ -8,7 +8,11 @@
     <Folder Include="Views\" />
     <Folder Include="Views\Login\" />
     <Folder Include="Controllers\" />
+<<<<<<< HEAD
+    <Folder Include="wwwroot\icons\" />
+=======
     <Folder Include="wwwroot\images\" />
+>>>>>>> 70fc1af4fcb5f7781765800dec07d20d11ae7273
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />

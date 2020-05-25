@@ -1,0 +1,15 @@
+
+.lionair-navlink {
+    color: #ffffff !important;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+}
+.navbar-nav > li {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.dropdown-toggle::after {
+    display: none;
+}
