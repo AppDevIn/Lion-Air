@@ -1,0 +1,47 @@
+﻿@page
+@{
+    Layout = null;
+}
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="~/css/login.css">
+</head>
+<body>
+    <!-- Form-->
+    <div class="form">
+
+        <div class="form-one">
+            <div class="form-header">
+                <h1>Account Login</h1>
+            </div>
+            <div class="form-content">
+                <form>
+                    <form>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input class="form-control" type="text" id="username" name="username" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input class="form-control" type="password" id="password" name="password" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-remember">
+                                <input type="checkbox" />Remember Me
+                            </label><a class="form-recovery" href="#">Forgot Password?</a>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-lg btn-block" type="submit">Log In</button>
+                        </div>
+                    </form>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</body>
