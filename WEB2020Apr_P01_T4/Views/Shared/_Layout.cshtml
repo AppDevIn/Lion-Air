@@ -13,10 +13,28 @@
     <link rel="stylesheet" href="~/css/airportcodes.css" />
 </head>
 
+@{
+    String role = HttpContextAccessor.HttpContext.Session.GetString("Role");
+}
+
 <body>
     <header>
-        @HttpContextAccessor.HttpContext.Session.GetString("Role");
-        @await Html.PartialAsync("_HomePageNav.cshtml")
+
+        @if (role == "Customer")
+        {
+            @await Html.PartialAsync("_CustomerNav.cshtml")
+
+        }
+        else if (role == "Staff")
+        {
+            @await Html.PartialAsync("_StaffNav.cshtml")
+        }
+        else
+        {
+            @await Html.PartialAsync("_HomePageNav.cshtml")
+
+        }
+
 
     </header>
     <div">
