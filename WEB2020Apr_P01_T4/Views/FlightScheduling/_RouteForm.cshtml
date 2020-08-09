@@ -14,7 +14,7 @@
         }
 
         @using (@Html.BeginForm("SaveRoute", "FlightScheduling"))
-    {
+        {
         <div class="form-group">
             @Html.LabelFor(m => m.DepartureCountry)
             @Html.TextBoxFor(m => m.DepartureCountry, new { @class = "form-control" })
@@ -51,8 +51,3 @@
     </div>
 </div>
 
-
-
-
-<script src="~/wwwroot/lib/jquery-validation/dist/jquery.validate.js"></script>
-<script src="~/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>

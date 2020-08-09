@@ -179,29 +179,25 @@ namespace WEB2020Apr_P01_T4.Controllers
             return PartialView("_ScheduleForm", fs);
         }
 
-        public IActionResult AddSchedule(int id)
+
+
+        public ActionResult AddSchedule(int id)
         {
-
-
-
-            RouteViewModel routeViewModel = new RouteViewModel
-            {
-                RouteList = routeDAL.getAllRoutes(),
-                SearchOption = Route.GetTableList(),
-                TicketSize = bookingDAL.GetAllBooking().Count(),
-                FlightSchedule = new FlightSchedule(),
-                CreateRoute = new Route(),
-                ShowAddPop = true
-            };
-
-            routeViewModel.FlightSchedule.RouteID = id;
-
-            return CheckAdmin(View("Index", routeViewModel));
-         
+            //stuff you need and then return the partial view 
+            //I recommend using "" quotes for a partial view
+            FlightSchedule fs = new FlightSchedule();
+            fs.RouteID = id;
+            fs.Status = "Opened";
+            return PartialView("_ScheduleForm", fs);
         }
 
-
-
+        public ActionResult EditRoute(int id)
+        {
+            //stuff you need and then return the partial view 
+            //I recommend using "" quotes for a partial view
+            Route route = routeDAL.getAllRoutes().First(r => r.RouteID == id);
+            return PartialView("_RouteForm", route);
+        }
 
         [HttpPost]
         public IActionResult SaveRoute(Route route)

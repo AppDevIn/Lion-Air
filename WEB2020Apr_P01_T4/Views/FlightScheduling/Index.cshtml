@@ -95,7 +95,11 @@
                                 @Html.ActionLink("", "Schedule", "FlightScheduling", new { @id = route.RouteID }, new { @class = "fa fa-eye" })
                                 @if (route.FlightDuration != 0)
                                 {
-                                    @Html.ActionLink("", "AddSchedule", "FlightScheduling", new { @id = route.RouteID }, new { @class = "fa fa-plus-square" })
+                                    <i class="fa fa-plus-square Add" data-route="@route.RouteID"></i>
+                                }
+                                else
+                                {
+                                    <i class="fa fa-edit Edit" data-route="@route.RouteID"></i>
                                 }
                             </td>
 
@@ -112,26 +116,33 @@
     </div>
 </div>
 
-@if (Model.ShowAddPop)
-{
-    @await Html.PartialAsync("_ScheduleForm.cshtml", Model.FlightSchedule)
-}
+<div id="searchResults">
 
-
-@if (Model.ShowRoutePop)
-{
-    @await Html.PartialAsync("_RouteForm.cshtml", Model.CreateRoute)
-    <script>
-        document.querySelector('.bg-modal').style.display = "flex";
-    </script>
-}
-else
-{
-    @await Html.PartialAsync("_RouteForm.cshtml", Model.CreateRoute)
-}
-
+</div>
 
 
 
 
 <script src="~/js/FlightSchedule.js" asp-append-version="true"></script>
+<script src="//code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $('.Add').click(function (e) {
+            var id = $(this).data('route');
+            $.get('@Url.Action("AddSchedule", "FlightScheduling")', { id: id }, function (response) {
+                $("#searchResults").html(response);
+            });
+        })
+
+    })
+
+        $(function () {
+        $('.Edit').click(function (e) {
+            var id = $(this).data('route');
+            $.get('@Url.Action("EditRoute", "FlightScheduling")', { id: id }, function (response) {
+                $("#searchResults").html(response);
+            });
+        })
+
+    })
+</script>
