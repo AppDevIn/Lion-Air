@@ -29,7 +29,6 @@ namespace WEB2020Apr_P01_T4.Models
         [Display(Name = "Vocation")]
         public string Vocation { get; set; }
 
-        [Required(ErrorMessage = "Required")]
         [Display(Name = "Email Address")]
         [StringLength(50, ErrorMessage = "Max 50 characters")]
         [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}")]

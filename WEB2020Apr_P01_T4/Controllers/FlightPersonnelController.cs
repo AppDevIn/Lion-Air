@@ -320,7 +320,7 @@ namespace WEB2020Apr_P01_T4.Controllers
             gender.Add(new SelectListItem { Value = null, Text = "--Please Select--" });
             gender.Add(new SelectListItem { Value = "M", Text = "Male" });
             gender.Add(new SelectListItem { Value = "F", Text = "Female" });
-            gender.Add(new SelectListItem { Value = null, Text = "Others" });
+            gender.Add(new SelectListItem { Value = " ", Text = "NIL" });
             return gender;
         }
 
